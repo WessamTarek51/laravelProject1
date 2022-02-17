@@ -4,10 +4,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<a href="posts/create">add user</a>
+<a href="posts/create">add  Post</a>
 <table class="table">
     <thead>
       <tr>
+        <th>User name</th>
+        <th>User email</th>
+        <th>User id</th>
         <th>ID</th>
         <th>Title</th>
         <th>Description</th>
@@ -22,7 +25,9 @@
       <tr>
         <!--   {{$post->id}} used it when get data from database -->
         <!--    {{$post['description']}} used it when get data from conrol static data -->
-
+        <td>{{$post->user->name}}</td>
+        <td>{{$post->user->email}}</td>
+        <td>{{$post->user->id}}</td>
         <td>{{$post->id}}</td>
         <td>{{$post['title']}}</td>
         <td>{{$post['description']}}</td>

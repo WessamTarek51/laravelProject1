@@ -10,9 +10,22 @@
   <form action="/posts/{{$id}}" method="POST">
       @csrf
       @method("PATCH")
+
+      <div class="mb-3">
+      <label for="id">ID:</label>
+      <input type="text" class="form-control"  name="id" value={{$id}}>
+      @error('id')
+      @if($errors->any())
+ <div class="alert alert-danger">{{ $message }}</div> @endif
+   @enderror
+    </div>
     <div class="mb-3 mt-3">
       <label for="title">Title:</label>
       <input type="text" class="form-control" name="title" value={{$title}}>
+      @error('title')
+      @if($errors->any())
+ <div class="alert alert-danger">{{ $message }}</div> @endif
+   @enderror
     </div>
     <div class="mb-3">
       <label for="description">Description:</label>
