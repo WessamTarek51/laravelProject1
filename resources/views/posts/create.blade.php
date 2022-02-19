@@ -1,15 +1,7 @@
-<html>
-<head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
+@extends('myLayout.app')
+@section('content')
 
 <div class="container mt-3">
-
-
-
-
   <form action="/posts" method="post">
       @csrf
     <div class="mb-3">
@@ -53,6 +45,6 @@
 </div>
 @endif -->
 </div>
+@endsection
 
-</body>
-</html>
+

@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,23 +14,14 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::resource('posts',PostController::class);
-Route::get("/users/create",[UserController::class,"create"]);
-Route::post("/users",[UserController::class,"store"]);
+Route::get('/dashboard', function () {
+    return redirect()->route('posts.index');
+})->middleware(['auth'])->name('dashboard');
 
+require __DIR__.'/auth.php';
 
-
-// Route::get('/posts', [PostController::class,"index"])->name('posts.index');
-
-// Route::get('/posts/{id}',[PostController::class,"show"])->where('id','[0-9]+')->name('posts.show');
-
-// Route::get('/posts/{id}/edit',[PostController::class,"edit"])->name('posts.edit');
-
-// Route::post('/posts/{id}',[PostController::class,"update"]);
-
-// Route::get('/posts/create',[PostController::class,"create"] );
-
-// Route::post('/posts',[PostController::class,"store"]);
-
-// Route::delete('/posts/{id}',[PostController::class,"destory"]);
+Route::resource('posts',PostController::class)->middleware('auth');

@@ -1,6 +1,6 @@
+@extends('myLayout.app')
+@section('content')
 
-<html>
-    <body>
       <ul>
           <li>{{$id}}</li>
           <li>{{$title}}</li>
@@ -10,5 +10,4 @@
 
 
 </ul>
-    </body>
-</html>
+@endsection

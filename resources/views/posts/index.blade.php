@@ -1,9 +1,7 @@
-<html>
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
+@extends('myLayout.app')
+
+
+@section('content')
 <a href="posts/create">add  Post</a>
 <table class="table">
     <thead>
@@ -51,8 +49,17 @@
       @endforeach
     </tbody>
   </table>
-</body>
-</html>
+
+  <span>
+    {{$posts->links()}}
+</span>
+<style>
+  .w-5{
+    display:none;
+  }
+  </style>
+
+  @endsection
 
 
 

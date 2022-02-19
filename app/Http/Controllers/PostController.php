@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class PostController extends Controller
 {
@@ -15,7 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
+        $posts=Post::paginate(3);
+
+
         return view("posts.index",["posts"=>$posts]);
 
     }
@@ -42,7 +47,7 @@ class PostController extends Controller
         $post= new Post;
         $post->title=$request->title;
         $post->description=$request->description;
-        $post->user_id=2;
+        $post->user_id=Auth::id();
         $post->save();
 
 
