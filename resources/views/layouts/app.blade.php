@@ -11,10 +11,11 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -28,9 +29,12 @@
             </header>
 
             <!-- Page Content -->
+            @yield('content')
             <main>
                 {{ $slot }}
             </main>
         </div>
+        <script src="{{asset('/js/scripts.js')}}"></script>
+
     </body>
 </html>

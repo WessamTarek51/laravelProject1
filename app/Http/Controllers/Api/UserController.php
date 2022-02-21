@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Resources\UserResource;
+
+
 
 class UserController extends Controller
 {
@@ -14,7 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        // return UserResource::collection(User::all());
+        return UserResource::collection(User::all());
+
     }
 
     /**
@@ -24,8 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
-
+        //
     }
 
     /**
@@ -36,16 +41,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-    $user= new User;
-     $user->name=$request->name;
-     $user->email=$request->email;
-     $user->password=$request->password;
-     $user->save();
-
-     return "done";
-
-
-
+        //
     }
 
     /**
@@ -56,7 +52,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return new UserResource(User::find($id));
+
     }
 
     /**

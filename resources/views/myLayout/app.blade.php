@@ -13,6 +13,7 @@
     </head>
     <body>
         <div class="d-flex" id="wrapper">
+            
             <!-- Sidebar-->
             @section('sidebar')
             <div class="border-end bg-white" id="sidebar-wrapper">
